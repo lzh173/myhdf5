@@ -25,7 +25,7 @@ function ViewPage() {
         clear([fileUrl, RESOLVE_FILE_URL_KEY]); // clear suspend cache
       }}
     >
-      <Suspense fallback={<Loader message="Processing file URL..." />}>
+      <Suspense fallback={<Loader message="正在解析文件网址..." />}>
         <ViewerContainer fileUrl={fileUrl} />
       </Suspense>
     </ErrorBoundary>

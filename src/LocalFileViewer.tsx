@@ -28,7 +28,7 @@ function LocalFileViewer(props: Props) {
           disableDarkMode
           propagateErrors
           getFeedbackURL={({ entityPath }) => {
-            return buildMailto('Feedback', FEEDBACK_MESSAGE, file, entityPath);
+            return buildMailto('反馈', FEEDBACK_MESSAGE, file, entityPath);
           }}
         />
       </ErrorBoundary>

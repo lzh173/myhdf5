@@ -33,19 +33,19 @@ function RemoteService() {
 
   return (
     <Service icon={FiGlobe}>
-      <h2 className={styles.heading}>Open from URL</h2>
+      <h2 className={styles.heading}>从网址打开</h2>
       {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form onSubmit={createSubmitHandler(handleValidSubmit)}>
         <div className={styles.inputWrapper}>
           <input
             className={styles.input}
-            aria-label="URL of HDF5 file"
+            aria-label="HDF5 文件网址"
             placeholder="https://github.com/org/repo/blob/sha/path/to/file.h5"
             data-error={!!errors.url || undefined}
             {...register('url', { validate: validateRequiredUrl })}
           />
           <button className={styles.openBtn} type="submit">
-            Open
+            打开
           </button>
         </div>
         {errors.url?.message ? (
@@ -54,23 +54,21 @@ function RemoteService() {
           </p>
         ) : isUnstable ? (
           <p className={styles.hint}>
-            If you intend to <Link to="/help">share this file</Link>, consider
-            using a{' '}
+            如果要<Link to="/help">分享此文件</Link>，建议使用{' '}
             <a
               href="https://docs.github.com/en/repositories/working-with-files/using-files/getting-permanent-links-to-files"
               target="_blank"
               rel="noreferrer"
             >
-              permalink
+              永久链接
             </a>
             .
           </p>
         ) : (
           !isSubmitted && (
             <p className={styles.hint}>
-              Paste the URL of a file from a Zenodo record or GitHub repository.
-              For more information and advanced uses,{' '}
-              <Link to="/help#remote">check out the help page</Link>.
+              粘贴 Zenodo 记录或 GitHub 仓库中的文件网址。更多信息及高级用法请
+              参阅<Link to="/help#remote">帮助页面</Link>。
             </p>
           )
         )}

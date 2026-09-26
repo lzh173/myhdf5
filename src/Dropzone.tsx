@@ -56,7 +56,7 @@ function Dropzone(props: PropsWithChildren<Props>) {
       <input {...getInputProps()} />
       {isDragActive && (
         <div className={styles.dropIt}>
-          <p>Drop it!</p>
+          <p>松开即可打开文件</p>
         </div>
       )}
       <DropzoneContext.Provider value={{ openFilePicker: open }}>

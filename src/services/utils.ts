@@ -26,7 +26,7 @@ export function toRawGitlabHref(gitlabUrl: URL): string {
 export async function fetchZenodoFileUrl(downloadUrl: string): Promise<string> {
   const match = /\/records?\/(\d+)\/files\/([^?]+)/u.exec(downloadUrl);
   if (!match) {
-    throw new Error('Zenodo record URL not recognised');
+    throw new Error('无法识别 Zenodo 记录网址');
   }
 
   const [, record, filename] = match;
@@ -36,11 +36,11 @@ export async function fetchZenodoFileUrl(downloadUrl: string): Promise<string> {
 
   const file = files.find((f) => f.key === filename);
   if (!file) {
-    throw new Error('File not found in Zenodo record');
+    throw new Error('在 Zenodo 记录中找不到该文件');
   }
 
   if (!file.links.self) {
-    throw new Error(`File download URL not found in Zenodo record`);
+    throw new Error(`在 Zenodo 记录中找不到文件下载网址`);
   }
 
   return file.links.self;
@@ -48,18 +48,18 @@ export async function fetchZenodoFileUrl(downloadUrl: string): Promise<string> {
 
 export function validateRequiredUrl(fileUrl: string): ValidateResult {
   if (!fileUrl) {
-    return 'Please enter a URL';
+    return '请输入网址';
   }
 
   let url;
   try {
     url = new URL(fileUrl);
   } catch {
-    return 'Please enter a valid URL starting with https://';
+    return '请输入以 https:// 开头的有效网址';
   }
 
   if (url.protocol !== 'https:') {
-    return 'The URL must start with https://';
+    return '网址必须以 https:// 开头';
   }
 
   return true;

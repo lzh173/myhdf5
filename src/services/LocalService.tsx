@@ -14,11 +14,10 @@ function LocalService() {
         type="button"
         onClick={() => openFilePicker()}
       >
-        Select HDF5 files
+        选择 HDF5 文件
       </button>
       <p className={styles.hint}>
-        ... or drop files anywhere at any time. Your files won't be uploaded to
-        a remote server; everything happens locally in your browser thanks to{' '}
+        也可以随时将文件拖放到页面中的任意位置。文件不会上传到远程服务器； 借助{' '}
         <a
           href="https://github.com/usnistgov/h5wasm"
           target="_blank"
@@ -26,7 +25,7 @@ function LocalService() {
         >
           h5wasm
         </a>
-        .
+        ，所有处理均在浏览器本地完成。
       </p>
     </Service>
   );

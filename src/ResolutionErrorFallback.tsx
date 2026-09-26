@@ -10,7 +10,7 @@ interface Props extends FallbackProps {
 
 function ResolutionErrorFallback(props: Props) {
   const { error, fileUrl } = props;
-  const msg = error instanceof Error ? error.message : 'Unknown error';
+  const msg = error instanceof Error ? error.message : '未知错误';
 
   return (
     <div className={styles.root}>
@@ -18,15 +18,15 @@ function ResolutionErrorFallback(props: Props) {
         <p>{msg}</p>
         {error instanceof NetworkError && (
           <p>
-            Your Internet connection may be down, or you may be experiencing a{' '}
+            网络连接可能已中断，也可能遇到了
             <a
               href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
               target="_blank"
               rel="noreferrer"
             >
-              cross-origin request
+              跨源请求
             </a>{' '}
-            error.
+            错误。
           </p>
         )}
       </div>
@@ -36,27 +36,25 @@ function ResolutionErrorFallback(props: Props) {
         target="_blank"
         rel="noreferrer"
         href={buildMailto(
-          'Error report',
-          `I encountered the following error on myHDF5: "${msg}"`,
+          '错误报告',
+          `我在使用 myHDF5 时遇到了以下错误："${msg}"`,
           fileUrl,
         )}
       >
-        Report error
+        报告错误
       </a>
 
       <details className={styles.debug}>
-        <summary>Debug information</summary>
+        <summary>调试信息</summary>
         <ul>
           <li>
-            Provided URL:{' '}
+            输入的网址：{' '}
             <a href={fileUrl} target="_blank" rel="noreferrer">
               {fileUrl}
             </a>
           </li>
         </ul>
-        <p className={styles.hint}>
-          This information is automatically included in the error report.
-        </p>
+        <p className={styles.hint}>错误报告中会自动包含这些信息。</p>
       </details>
     </div>
   );

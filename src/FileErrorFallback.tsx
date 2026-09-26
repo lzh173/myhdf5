@@ -13,7 +13,7 @@ interface Props extends FallbackProps {
 function FileErrorFallback(props: Props) {
   const { error, file, resetErrorBoundary } = props;
 
-  const msg = error instanceof Error ? error.message : 'Unknown error';
+  const msg = error instanceof Error ? error.message : '未知错误';
   const cause = error instanceof Error ? error.cause : undefined;
 
   const causeMsg =
@@ -30,18 +30,17 @@ function FileErrorFallback(props: Props) {
         </details>
       ) : error instanceof NetworkError ? (
         <div className={styles.error}>
-          <p>File could not be fetched.</p>
+          <p>无法获取文件。</p>
           <p>
-            Your Internet connection may be down, or you may be experiencing a{' '}
+            网络连接可能已中断，也可能遇到了
             <a
               href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
               target="_blank"
               rel="noreferrer"
             >
-              cross-origin request
+              跨源请求
             </a>{' '}
-            error. If&nbsp;that's the case, try downloading the file and opening
-            it as a local file instead.
+            错误。若是后者，请尝试下载文件，然后将其作为本地文件打开。
           </p>
         </div>
       ) : (
@@ -61,7 +60,7 @@ function FileErrorFallback(props: Props) {
           target="_blank"
           rel="noreferrer"
         >
-          Download file
+          下载文件
         </a>
       )}
       <a
@@ -69,12 +68,12 @@ function FileErrorFallback(props: Props) {
         target="_blank"
         rel="noreferrer"
         href={buildMailto(
-          'Error report',
-          `I encountered the following error on myHDF5: "${msg}"${causeMsg ? ` — ${causeMsg}` : ''}`,
+          '错误报告',
+          `我在使用 myHDF5 时遇到了以下错误："${msg}"${causeMsg ? ` - ${causeMsg}` : ''}`,
           file,
         )}
       >
-        Report error
+        报告错误
       </a>
 
       <button
@@ -82,31 +81,29 @@ function FileErrorFallback(props: Props) {
         type="button"
         onClick={() => resetErrorBoundary()}
       >
-        Retry
+        重试
       </button>
 
       <details className={styles.debug}>
-        <summary>Debug information</summary>
+        <summary>调试信息</summary>
         <ul>
-          <li>Service detected: {file.service}</li>
+          <li>检测到的服务：{file.service}</li>
           <li>
-            File URL:{' '}
+            文件网址：{' '}
             <a href={file.url} target="_blank" rel="noreferrer">
               {file.url}
             </a>
           </li>
           {file.resolvedUrl !== file.url && (
             <li>
-              Resolved URL:{' '}
+              解析后的网址：{' '}
               <a href={file.resolvedUrl} target="_blank" rel="noreferrer">
                 {file.resolvedUrl}
               </a>
             </li>
           )}
         </ul>
-        <p className={styles.hint}>
-          This information is automatically included in the error report.
-        </p>
+        <p className={styles.hint}>错误报告中会自动包含这些信息。</p>
       </details>
     </div>
   );

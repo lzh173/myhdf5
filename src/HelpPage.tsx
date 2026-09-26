@@ -17,103 +17,98 @@ function HelpPage() {
     <div className={styles.root}>
       <section>
         <h2>
-          About myHDF<span>5</span>
+          关于 myHDF<span>5</span>
         </h2>
         <p>
-          <em>myHDF5</em> is an online{' '}
-          <strong>HDF5 file viewing service</strong> developed and maintained by
-          the{' '}
+          <em>myHDF5</em> 是一项在线 <strong>HDF5 文件查看服务</strong>，由
           <a href="https://www.esrf.fr/" target="_blank" rel="noreferrer">
-            European Synchrotron Radiation Facility
-          </a>{' '}
-          (ESRF) as part of the European{' '}
-          <a href="https://www.panosc.eu/" target="_blank" rel="noreferrer">
-            PaNOSC project
+            欧洲同步辐射装置
           </a>
-          . It is based on{' '}
+          （ESRF）作为欧洲{' '}
+          <a href="https://www.panosc.eu/" target="_blank" rel="noreferrer">
+            PaNOSC 项目
+          </a>
+          的一部分开发并维护。它基于用于浏览和可视化 HDF5 文件的 React/WebGL
+          查看器
           <a
             href="https://github.com/silx-kit/h5web"
             target="_blank"
             rel="noreferrer"
           >
-            <strong>H5Web</strong>
+            <strong> H5Web</strong>
           </a>
-          , a React/WebGL viewer for exploring and visualising HDF5 files, as
-          well as{' '}
-          <a
-            href="https://github.com/usnistgov/h5wasm"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <strong>h5wasm</strong>
-          </a>
-          , a WebAssembly port of the HDF5 C library developed by the{' '}
+          ，以及由{' '}
           <a href="https://www.nist.gov/" target="_blank" rel="noreferrer">
             NIST
           </a>{' '}
-          that allows reading HDF5 files with JavaScript.
-        </p>
-      </section>
-      <section>
-        <h2>Opening local files</h2>
-        <p>
-          myHDF5 supports opening local HDF5 files of <strong>any size</strong>,
-          either by selecting them via a file picker from the{' '}
-          <Link to="/">
-            <em>Open HDF5</em>
-          </Link>{' '}
-          page, or by dragging and dropping them anywhere on the interface at
-          any time. You can even select/drop multiple files at once. Note that
-          your files are <strong>never uploaded</strong> to a remote server;
-          everything happens locally in your browser thanks to{' '}
+          开发的
           <a
             href="https://github.com/usnistgov/h5wasm"
             target="_blank"
             rel="noreferrer"
           >
-            h5wasm
+            <strong> h5wasm</strong>
           </a>
-          .
+          。后者是 HDF5 C 库的 WebAssembly 移植版本，可通过 JavaScript 读取 HDF5
+          文件。
         </p>
       </section>
-      <section id="remote">
-        <h2>Opening remote files</h2>
+      <section>
+        <h2>打开本地文件</h2>
         <p>
-          myHDF5 supports opening HDF5 files that are served statically through
-          the web. To do so, simply paste the URL of a file in the field located
-          on the{' '}
+          myHDF5 支持打开<strong>任意大小</strong>的本地 HDF5 文件。你可以在
           <Link to="/">
-            <em>Open HDF5</em>
-          </Link>{' '}
-          page. Note that the server must accept{' '}
+            <em>打开 HDF5</em>
+          </Link>
+          页面中选择文件，也可以随时将文件拖放到界面中的任意位置；
+          一次可选择或拖放多个文件。文件<strong>绝不会上传</strong>
+          到远程服务器。借助
           <a
-            href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
+            href="https://github.com/usnistgov/h5wasm"
             target="_blank"
             rel="noreferrer"
           >
-            cross-origin requests
+            {' '}
+            h5wasm
           </a>
-          .
+          ， 所有处理均在浏览器本地完成。
+        </p>
+      </section>
+      <section id="remote">
+        <h2>打开远程文件</h2>
+        <p>
+          myHDF5 可以打开通过网络静态提供的 HDF5 文件。只需在
+          <Link to="/">
+            <em>打开 HDF5</em>
+          </Link>
+          页面粘贴文件网址即可。请注意，文件所在服务器必须允许
+          <a
+            href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/CORS"
+            target="_blank"
+            rel="noreferrer"
+          >
+            跨源请求
+          </a>
+          。
         </p>
         <p>
-          A number of hosting services such as Zenodo and GitHub allow
-          downloading raw files. However, it is not always easy to find the
-          right URL to use. To make it easier, myHDF5 accepts the following
-          user-facing URL formats:
+          Zenodo、GitHub
+          等托管服务允许下载原始文件，但正确的下载网址有时并不容易找到。myHDF5
+          支持以下网址格式：
         </p>
         <ul className={styles.listSpaced}>
           <li>
-            <strong>Zenodo</strong> download URL (from a{' '}
+            <strong>Zenodo</strong> 下载网址（在
             <a
               href="https://zenodo.org/record/6497438"
               target="_blank"
               rel="noreferrer"
             >
-              record page
+              记录页面
             </a>
-            , right-click on file, <em>Copy&nbsp;Link</em>)
+            中右键单击文件，然后选择“复制链接”）
             <div className={styles.url}>
-              e.g.{' '}
+              示例：{' '}
               <Link
                 to={getViewerLink(
                   'https://zenodo.org/record/6497438/files/xrr_dataset.h5?download=1',
@@ -127,18 +122,17 @@ function HelpPage() {
             <strong>
               GitHub{' '}
               <a
-                href="https://docs.github.com/en/repositories/working-with-files/using-files/getting-permanent-links-to-files"
+                href="https://docs.github.com/zh/repositories/working-with-files/using-files/getting-permanent-links-to-files"
                 target="_blank"
                 rel="noreferrer"
               >
-                permalink
+                永久链接
               </a>
-            </strong>{' '}
-            (recommended for sharing)
+            </strong>
+            （分享时推荐使用）
             <div className={styles.url}>
-              e.g.{' '}
+              示例：{' '}
               <Link
-                title="https://github.com/oasys-esrf-kit/dabam2d/blob/f3aed913976d5772a51e6bac3bf3c4e4e4c8b4e1/data/dabam2d-0001.h5"
                 to={getViewerLink(
                   'https://github.com/oasys-esrf-kit/dabam2d/blob/f3aed913976d5772a51e6bac3bf3c4e4e4c8b4e1/data/dabam2d-0001.h5',
                 )}
@@ -148,9 +142,9 @@ function HelpPage() {
             </div>
           </li>
           <li>
-            GitHub URL with tag, branch or commit sha
+            包含标签、分支或提交 SHA 的 GitHub 网址
             <div className={styles.url}>
-              e.g.{' '}
+              示例：{' '}
               <Link
                 to={getViewerLink(
                   'https://github.com/oasys-esrf-kit/dabam2d/blob/main/data/dabam2d-0001.h5',
@@ -159,30 +153,17 @@ function HelpPage() {
                 https://github.com/oasys-esrf-kit/dabam2d/blob/main/data/dabam2d-0001.h5
               </Link>
             </div>
-            <div className={styles.url}>
-              e.g.{' '}
-              <Link
-                title="https://github.com/oasys-esrf-kit/dabam2d/blob/f3aed913976d5772a51e6bac3bf3c4e4e4c8b4e1/data/dabam2d-0001.h5"
-                to={getViewerLink(
-                  'https://github.com/oasys-esrf-kit/dabam2d/blob/f3aed913976d5772a51e6bac3bf3c4e4e4c8b4e1/data/dabam2d-0001.h5',
-                )}
-              >
-                https://github.com/oasys-esrf-kit/dabam2d/blob/f3aed913976d5772a51e6bac3bf3c4e4e4c8b4e1/data/dabam2d-0001.h5
-              </Link>
-            </div>
           </li>
         </ul>
         <p>
-          Note that <strong>GitLab</strong> currently{' '}
+          请注意，<strong>GitLab</strong> 目前
           <a href="https://gitlab.com/gitlab-org/gitlab/-/issues/16732">
-            does not support
-          </a>{' '}
-          cross-origin requests. You can still paste a user-facing GitLab URL,
-          but myHDF5 won't be able to fetch the file and will show an error.
-          When this occurs, myHDF5 lets you download the file manually so you
-          can open it as a local file.
+            不支持
+          </a>
+          跨源请求。 你仍可粘贴 GitLab 页面网址，但 myHDF5
+          无法获取文件，并会显示错误。此时可手动下载文件，再将其作为本地文件打开。
           <span className={styles.url}>
-            e.g.{' '}
+            示例：{' '}
             <Link
               to={getViewerLink(
                 'https://gitlab.com/utopia-project/utopia/-/blob/master/test/core/cell_manager_test.h5',
@@ -195,107 +176,98 @@ function HelpPage() {
       </section>
       <section>
         <h2>
-          Sharing a link to myHDF<span>5</span>
+          分享 myHDF<span>5</span> 链接
         </h2>
         <p>
-          When opening a remote file (i.e. a file hosted on Zenodo, GitHub,
-          etc.), the URL of myHDF5 shown in the browser's address bar is{' '}
-          <strong>shareable as is</strong>.{' '}
-          <em>This feature does not work for local files.</em>
+          打开托管在 Zenodo、GitHub 等平台上的远程文件后，浏览器地址栏中的
+          myHDF5 网址可以<strong>直接分享</strong>。
+          <em>本地文件不支持此功能。</em>
         </p>
       </section>
       <section>
-        <h2>Supported HDF5 compression plugins</h2>
+        <h2>支持的 HDF5 压缩插件</h2>
         <p>
-          myHDF5 supports reading datasets compressed with any of the plugins
-          available in{' '}
+          myHDF5 支持读取由{' '}
           <a
             href="https://github.com/h5wasm/h5wasm-plugins/tree/v0.0.3?tab=readme-ov-file#included-plugins"
             target="_blank"
             rel="noreferrer"
           >
-            h5wasm‑plugins@0.0.3
-          </a>
-          .
+            h5wasm-plugins@0.0.3
+          </a>{' '}
+          中任一插件压缩的数据集。
         </p>
       </section>
       <section>
-        <h2>Known limitations</h2>
+        <h2>已知限制</h2>
         <ul>
           <li>
-            External links and virtual datasets in HDF5 files are not supported.
-            While you should see an explicit error for external links, it won't
-            be the case for virtual datasets, which will appear filled with
-            zeros (or with the dataset's{' '}
+            不支持 HDF5
+            文件中的外部链接和虚拟数据集。外部链接会显示明确错误；虚拟数据集则会显示为全零，或显示为数据集设置的
             <a
               href="https://docs.hdfgroup.org/hdf5/develop/group___d_c_p_l.html#title28"
               target="_blank"
               rel="noreferrer"
             >
-              fill value
+              填充值
             </a>
-            , if set).
+            。
           </li>
           <li>
-            Local files are not persisted. If you leave myHDF5 and come back
-            later, or even just reload the page, local files will be removed
-            from the list of opened files.
+            本地文件不会持久保存。离开 myHDF5
+            后再次访问，或仅刷新页面，已打开文件列表中的本地文件都会被移除。
           </li>
         </ul>
       </section>
       <section>
-        <h2>Where to find support</h2>
+        <h2>获取支持</h2>
         <ul>
           <li>
-            For issues/features related to the H5Web viewer, please use{' '}
+            与 H5Web 查看器有关的问题或功能建议，请前往 GitHub 上的{' '}
             <a
               href="https://github.com/silx-kit/h5web/issues"
               target="_blank"
               rel="noreferrer"
             >
-              H5Web's issue tracker
-            </a>{' '}
-            on GitHub
+              H5Web 问题跟踪器
+            </a>
           </li>
           <li>
-            Otherwise, please use{' '}
+            其他问题请前往 GitHub 上的{' '}
             <a
               href="https://github.com/silx-kit/myhdf5/issues"
               target="_blank"
               rel="noreferrer"
             >
-              myHDF5's issue tracker
-            </a>{' '}
-            on GitLab
+              myHDF5 问题跟踪器
+            </a>
           </li>
           <li>
-            You can also contact us on H5Web's support &amp; feedback mailing
-            list:{' '}
-            <a href={buildMailto('Support request', FEEDBACK_MESSAGE)}>
+            也可以通过 H5Web 支持与反馈邮件列表联系我们：
+            <a href={buildMailto('支持请求', FEEDBACK_MESSAGE)}>
               h5web@esrf.fr
             </a>
           </li>
         </ul>
       </section>
       <section>
-        <h2>Where to leave feedback</h2>
+        <h2>提供反馈</h2>
         <p>
-          We'd love to hear what you think of myHDF5 and the H5Web viewer! Here
-          are the best ways to get in touch with us:
+          欢迎分享你对 myHDF5 和 H5Web 查看器的看法。可以通过以下方式联系我们：
         </p>
         <ul>
           <li>
+            在 H5Web 的 GitHub 仓库中
             <a
               href="https://github.com/silx-kit/h5web/discussions"
               target="_blank"
               rel="noreferrer"
             >
-              Open a discussion thread
-            </a>{' '}
-            on H5Web's GitHub repository
+              发起讨论
+            </a>
           </li>
           <li>
-            Drop us a line at <a href="mailto:h5web@esrf.fr">h5web@esrf.fr</a>
+            发送邮件至 <a href="mailto:h5web@esrf.fr">h5web@esrf.fr</a>
           </li>
         </ul>
       </section>

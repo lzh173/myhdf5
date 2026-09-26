@@ -45,7 +45,7 @@ function OpenedFiles() {
 
   return (
     <>
-      <h2 className={sidebarStyles.heading}>Opened files</h2>
+      <h2 className={sidebarStyles.heading}>已打开的文件</h2>
       {opened.length > 0 ? (
         <ul className={sidebarStyles.navList}>
           {opened.map((file, index) => {
@@ -75,7 +75,7 @@ function OpenedFiles() {
                     href={resolvedUrl}
                     title={resolvedUrl}
                     download={name}
-                    aria-label="Download file"
+                    aria-label="下载文件"
                     target="_blank"
                     rel="noreferrer"
                     onClick={(evt) => {
@@ -88,7 +88,7 @@ function OpenedFiles() {
                   <button
                     className={sidebarStyles.removeBtn}
                     type="button"
-                    aria-label="Remove file"
+                    aria-label="移除文件"
                     onClick={(evt) => {
                       evt.preventDefault();
                       removeFile(file, index, isActive);
@@ -102,7 +102,7 @@ function OpenedFiles() {
           })}
         </ul>
       ) : (
-        <p className={sidebarStyles.hint}>To get started, please open a file</p>
+        <p className={sidebarStyles.hint}>请先打开一个文件</p>
       )}
     </>
   );

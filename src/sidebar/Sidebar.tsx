@@ -25,22 +25,22 @@ function Sidebar() {
           <NavLink
             className={styles.mainNavItem}
             to="/"
-            aria-label="Open HDF5"
-            title="Open HDF5"
+            aria-label="打开 HDF5"
+            title="打开 HDF5"
             data-primary
           >
             <FiPlusCircle className={styles.icon} />
-            <span className={styles.label}>Open HDF5</span>
+            <span className={styles.label}>打开 HDF5</span>
           </NavLink>
 
           <NavLink
             className={styles.mainNavItem}
             to="help"
-            aria-label="Help"
-            title="Help"
+            aria-label="帮助"
+            title="帮助"
           >
             <FiHelpCircle className={styles.icon} />
-            <span className={styles.label}>Help</span>
+            <span className={styles.label}>帮助</span>
           </NavLink>
 
           {isCollapsed ? (
@@ -48,7 +48,7 @@ function Sidebar() {
               <button
                 type="button"
                 className={styles.flyoutBtn}
-                aria-label="Opened files"
+                aria-label="已打开的文件"
                 aria-current="true"
               >
                 <FiFileText />
@@ -68,14 +68,15 @@ function Sidebar() {
             isDisabled={!isViewingFile}
           />
           <p className={styles.credits} data-reveal>
-            Made by{' '}
+            由{' '}
             <a href="https://www.panosc.eu/" target="_blank" rel="noreferrer">
               PaNOSC
             </a>{' '}
-            at&nbsp;
+            在&nbsp;
             <a href="https://www.esrf.fr/" target="_blank" rel="noreferrer">
               ESRF
             </a>
+            &nbsp;开发
           </p>
         </div>
       </div>

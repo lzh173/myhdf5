@@ -1,13 +1,11 @@
 # myHDF5
 
-myHDF5 is a **free online service to explore and visualize HDF5 files**.
+myHDF5 是一个**免费在线浏览和可视化 HDF5 文件的服务**。
 
-Users can choose to select files from their local machine, or to load files that
-are hosted remotely on platforms such as GitHub or Zenodo.
+用户可以选择本地计算机上的文件，也可以加载托管在 GitHub、Zenodo 等平台上的远程文件。
 
-myHDF5 is based on [H5Web](https://github.com/silx-kit/h5web), an HDF5 file
-viewer and visualisation component library built with React and WebGL, as well
-as [h5wasm](https://github.com/usnistgov/h5wasm), a WebAssembly-powered library
-for reading HDF5 files from JavaScript.
+myHDF5 基于 [H5Web](https://github.com/silx-kit/h5web) 和
+[h5wasm](https://github.com/usnistgov/h5wasm)
+构建。H5Web 是使用 React 和 WebGL 开发的 HDF5 文件查看与可视化组件库；h5wasm 则是一个由 WebAssembly 驱动、可通过 JavaScript 读取 HDF5 文件的库。
 
 ![Demo GIF](demo.gif)

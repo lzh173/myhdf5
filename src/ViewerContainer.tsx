@@ -50,7 +50,7 @@ function ViewerContainer(props: Props) {
         clear([file.resolvedUrl, FETCH_BUFFER_KEY]); // clear suspend cache
       }}
     >
-      <Suspense fallback={<Loader message="Downloading file..." />}>
+      <Suspense fallback={<Loader message="正在下载文件..." />}>
         <RemoteFileViewer file={file} />
       </Suspense>
     </ErrorBoundary>

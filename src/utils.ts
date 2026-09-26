@@ -73,8 +73,7 @@ export async function resolveFileUrl(
   };
 }
 
-const INTRO =
-  'Please introduce yourself (name, organisation, scientific field, etc.)';
+const INTRO = '请简单介绍一下自己（姓名、单位、研究领域等）';
 
 function getReportIntro(fileOrUrl?: H5File | string) {
   if (
@@ -84,7 +83,7 @@ function getReportIntro(fileOrUrl?: H5File | string) {
   ) {
     return `<<<
   1. ${INTRO}
-  2. To help us understand the issue, please send us your HDF5 file (ideally via a file sharing service).
+  2. 为帮助我们了解问题，请发送你的 HDF5 文件（最好通过文件共享服务发送）。
 >>>`;
   }
 
@@ -97,30 +96,30 @@ export function buildMailto(
   fileOrUrl?: H5File | string,
   entityPath?: string,
 ): string {
-  const body = `Hi,
+  const body = `你好：
 
 ${getReportIntro(fileOrUrl)}
 
 ${message}
 
-Here is some additional context:
+以下是自动附加的上下文信息：
 
-  - User agent: ${navigator.userAgent}
-  - Location: ${globalThis.location.href}${
+  - 用户代理：${navigator.userAgent}
+  - 当前页面：${globalThis.location.href}${
     typeof fileOrUrl === 'string'
       ? `
-  - File URL: ${fileOrUrl}`
+  - 文件网址：${fileOrUrl}`
       : fileOrUrl
         ? `
-  - File name: ${fileOrUrl.name}
-  - File URL: ${fileOrUrl.url}
-  - Service detected: ${fileOrUrl.service}
-  - Resolved URL: ${fileOrUrl.resolvedUrl}`
+  - 文件名：${fileOrUrl.name}
+  - 文件网址：${fileOrUrl.url}
+  - 检测到的服务：${fileOrUrl.service}
+  - 解析后的网址：${fileOrUrl.resolvedUrl}`
         : ''
   }${
     entityPath
       ? `
-  - Entity path: ${entityPath}`
+  - 对象路径：${entityPath}`
       : ''
   }`;
 
@@ -131,7 +130,7 @@ Here is some additional context:
 }
 
 export const FEEDBACK_MESSAGE = `<<
-  Please replace this block with your feedback, and attach an HDF5 file if relevant.
-  => To report an issue, please include screenshots, reproduction steps, etc.
-  => To suggest a new feature, please describe the needs this feature would fulfill.
+  请将此段替换为你的反馈；如有必要，请附上 HDF5 文件。
+  => 报告问题时，请附上截图、复现步骤等信息。
+  => 建议新功能时，请说明该功能要满足的需求。
 >>`;

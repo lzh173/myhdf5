@@ -16,7 +16,7 @@ function SidebarToggle(props: Props) {
     <button
       className={sidebarStyles.navBtn}
       type="button"
-      aria-label={`${isCollapsed ? 'Expand' : 'Collapse'} sidebar`}
+      aria-label={isCollapsed ? '展开侧边栏' : '收起侧边栏'}
       disabled={isDisabled}
       onClick={() => toggleSidebar()}
     >

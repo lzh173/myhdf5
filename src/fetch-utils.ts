@@ -22,7 +22,7 @@ export async function fetchBuffer(url: string): Promise<ArrayBuffer> {
 
 export class NetworkError extends Error {
   public constructor() {
-    super('Network Error');
+    super('网络错误');
     this.name = 'NetworkError';
   }
 }
@@ -32,7 +32,7 @@ export class FetchError extends Error {
     public readonly status: number,
     public readonly statusText: string,
   ) {
-    super(`Request failed: ${status} ${statusText}`);
+    super(`请求失败：${status} ${statusText}`);
     this.name = 'FetchError';
   }
 }
