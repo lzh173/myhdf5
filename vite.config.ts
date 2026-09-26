@@ -5,7 +5,7 @@ import { checker } from 'vite-plugin-checker';
 
 export default defineConfig({
   server: { open: true },
-  build: { sourcemap: true },
+  build: { sourcemap: false },
 
   plugins: [
     react(),
