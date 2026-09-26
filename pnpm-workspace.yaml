@@ -20,3 +20,7 @@ minimumReleaseAgeExclude:
   - '@h5web/*'
   - '@esrf/eslint-config'
   - react-dropzone@17.0.0
+
+patchedDependencies:
+  '@h5web/app@17.0.0': patches/@h5web__app@17.0.0.patch
+  '@h5web/lib@17.0.0': patches/@h5web__lib@17.0.0.patch

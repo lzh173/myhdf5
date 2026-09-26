@@ -1,0 +1,182 @@
+diff --git a/dist/index.js b/dist/index.js
+index 4732eeb04faa11322d315009d62c105ec69f31ff..27e05128ed101e1363c378d26542df819f51fcbd 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -1130,7 +1130,7 @@ function Ci() {
+ 		onClick: () => r(),
+ 		children: /* @__PURE__ */ S("span", {
+ 			className: Si.btnLike,
+-			children: "Reset zoom"
++			children: "重置缩放"
+ 		})
+ 	}) });
+ }
+@@ -2558,7 +2558,7 @@ function so(e) {
+ 	return /* @__PURE__ */ C(x, { children: [/* @__PURE__ */ S(no, {
+ 		ref: a.setReference,
+ 		id: i,
+-		label: "Show help",
++		label: "显示帮助",
+ 		Icon: Qt,
+ 		iconOnly: !0,
+ 		"aria-haspopup": "dialog",
+@@ -2642,7 +2642,7 @@ function mo(e) {
+ 		/* @__PURE__ */ S(no, {
+ 			ref: c.setReference,
+ 			id: s,
+-			label: "More controls",
++			label: "更多控件",
+ 			Icon: $t,
+ 			iconOnly: !0,
+ 			"aria-haspopup": "dialog",
+@@ -3174,7 +3174,7 @@ function Yo(e) {
+ 		}), n && r && /* @__PURE__ */ S("button", {
+ 			className: Z.swapBtn,
+ 			type: "button",
+-			"aria-label": "Swap min and max",
++			"aria-label": "交换最小值和最大值",
+ 			onClick: () => r(),
+ 			children: /* @__PURE__ */ S(dn, {})
+ 		})]
+@@ -3241,16 +3241,16 @@ var Xo = a((e, t) => {
+ 			/* @__PURE__ */ C("p", {
+ 				className: Z.autoscale,
+ 				children: [
+-					"Autoscale",
++					"自动缩放",
+ 					" ",
+ 					/* @__PURE__ */ S(_o, {
+-						label: "Min",
++						label: "最小值",
+ 						raised: !0,
+ 						value: a,
+ 						onToggle: l
+ 					}),
+ 					/* @__PURE__ */ S(_o, {
+-						label: "Max",
++						label: "最大值",
+ 						raised: !0,
+ 						value: o,
+ 						onToggle: u
+@@ -3391,7 +3391,7 @@ function cs(e) {
+ 			}), /* @__PURE__ */ S(_o, {
+ 				iconOnly: !0,
+ 				small: !0,
+-				label: "Edit domain",
++				label: "编辑范围",
+ 				"aria-expanded": _ || T,
+ 				"aria-controls": ss,
+ 				Icon: Zt,
+@@ -3403,7 +3403,7 @@ function cs(e) {
+ 			id: ss,
+ 			className: os.popupOuter,
+ 			role: "dialog",
+-			"aria-label": "Edit domain",
++			"aria-label": "编辑范围",
+ 			hidden: !_ && !T,
+ 			children: /* @__PURE__ */ C("div", {
+ 				className: os.popup,
+@@ -3631,7 +3631,7 @@ function _s(e) {
+ 		})
+ 	}), /* @__PURE__ */ S(_o, {
+ 		small: !0,
+-		label: "Invert",
++		label: "反转",
+ 		Icon: tn,
+ 		value: r,
+ 		onToggle: i
+@@ -3675,9 +3675,9 @@ function ys(e) {
+ //#endregion
+ //#region src/toolbar/controls/ScaleSelector/ScaleSelector.tsx
+ var bs = {
+-	[R.Linear]: ["Linear", un],
+-	[R.Log]: ["Log", cn],
+-	[R.SymLog]: ["SymLog", vs],
++	[R.Linear]: ["线性", un],
++	[R.Log]: ["对数", cn],
++	[R.SymLog]: ["对称对数", vs],
+ 	[R.Sqrt]: ["Square root", ys],
+ 	[R.Gamma]: ["Gamma", ln]
+ };
+@@ -3727,7 +3727,7 @@ function Ds(e) {
+ 		children: [/* @__PURE__ */ S("label", {
+ 			className: Ts.label,
+ 			htmlFor: Es,
+-			children: "Notation"
++			children: "数值格式"
+ 		}), /* @__PURE__ */ C(Eo, {
+ 			id: Es,
+ 			role: "radiogroup",
+@@ -3735,15 +3735,15 @@ function Ds(e) {
+ 			onChange: (e) => n(e),
+ 			children: [
+ 				/* @__PURE__ */ S(Eo.Btn, {
+-					label: "Auto",
++					label: "自动",
+ 					value: ws.Auto
+ 				}),
+ 				/* @__PURE__ */ S(Eo.Btn, {
+-					label: "Scientific",
++					label: "科学计数法",
+ 					value: ws.Scientific
+ 				}),
+ 				/* @__PURE__ */ S(Eo.Btn, {
+-					label: "Exact",
++					label: "精确值",
+ 					value: ws.Exact
+ 				})
+ 			]
+@@ -4418,7 +4418,7 @@ var $ = () => w(-20, 21), Qs = () => w(0, 100, 5), $s = () => w(-1, 1.25, .25),
+ //#region src/toolbar/controls/SnapshotBtn.tsx
+ function vc() {
+ 	return /* @__PURE__ */ S(go, {
+-		label: "Snapshot",
++		label: "截图",
+ 		icon: sn,
+ 		href: "/",
+ 		target: "_blank",
+@@ -4450,7 +4450,7 @@ function yc(e) {
+ 	return /* @__PURE__ */ C(x, { children: [/* @__PURE__ */ S(no, {
+ 		ref: i.setReference,
+ 		id: l,
+-		label: `Export${n ? " slice" : ""}`,
++		label: `导出${n ? "切片" : ""}`,
+ 		Icon: Xt,
+ 		withArrow: !0,
+ 		disabled: t.length === 0,
+@@ -4481,7 +4481,7 @@ function yc(e) {
+ 				} }),
+ 				children: /* @__PURE__ */ C("span", {
+ 					className: X.label,
+-					children: ["Export to ", n.toUpperCase()]
++					children: ["导出为 ", n.toUpperCase()]
+ 				})
+ 			}, n);
+ 		})
+@@ -4501,7 +4501,7 @@ function Cc(e) {
+ 				id: `${xc}-label`,
+ 				className: bc.label,
+ 				htmlFor: xc,
+-				children: "Cell width"
++				children: "单元格宽度"
+ 			}),
+ 			/* @__PURE__ */ S("input", {
+ 				id: xc,
+@@ -4525,7 +4525,7 @@ function Cc(e) {
+ 				onBlur: () => s((t ?? a).toString())
+ 			}),
+ 			/* @__PURE__ */ S(no, {
+-				label: "Reset",
++				label: "重置",
+ 				Icon: en,
+ 				iconOnly: !0,
+ 				small: !0,
+@@ -4552,7 +4552,7 @@ function Ec(e) {
+ 			children: t
+ 		}) : /* @__PURE__ */ S("p", {
+ 			className: wc.fallback,
+-			children: "Too big to display"
++			children: "数据过大，无法显示"
+ 		})
+ 	});
+ }

@@ -1,0 +1,414 @@
+diff --git a/dist/index.js b/dist/index.js
+index e17199cff115c8694bfbdc09795e81c5f7a2b7e3..61491ac40fba1279b5dd28490ee4dea2803f8f7a 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -659,7 +659,7 @@ function li(e) {
+ 	return Ie(i, r ? 3e3 : void 0), /* @__PURE__ */ A("button", {
+ 		className: ci.crumbButton,
+ 		type: "button",
+-		title: "Copy path to clipboard",
++		title: "复制路径",
+ 		"aria-label": `${t} (copy path)`,
+ 		"data-current": !0,
+ 		"data-copied": r || void 0,
+@@ -733,7 +733,7 @@ function fi(e) {
+ 		className: ci.bar,
+ 		children: [
+ 			/* @__PURE__ */ k(S, {
+-				label: "Toggle sidebar",
++				label: "切换侧边栏",
+ 				Icon: st,
+ 				iconOnly: !0,
+ 				value: r,
+@@ -747,29 +747,29 @@ function fi(e) {
+ 			}),
+ 			/* @__PURE__ */ A(ue, {
+ 				role: "tablist",
+-				ariaLabel: "Viewer mode",
++				ariaLabel: "查看模式",
+ 				value: String(i),
+ 				onChange: (e) => {
+ 					o(e === "true" || !1);
+ 				},
+ 				children: [/* @__PURE__ */ k(ue.Btn, {
+-					label: "Display",
++					label: "显示",
+ 					value: "false"
+ 				}), /* @__PURE__ */ k(ue.Btn, {
+-					label: "Inspect",
++					label: "检查",
+ 					value: "true"
+ 				})]
+ 			}),
+ 			document.fullscreenEnabled && /* @__PURE__ */ k(t, {
+ 				Icon: u ? rt : tt,
+ 				iconOnly: !0,
+-				label: "Go full screen",
++				label: "进入全屏",
+ 				onClick: () => {
+ 					document.fullscreenElement ? document.exitFullscreen() : document.querySelector("[data-fullscreen-root]")?.requestFullscreen();
+ 				}
+ 			}),
+ 			c && /* @__PURE__ */ A(O, { children: [/* @__PURE__ */ k(x, {}), /* @__PURE__ */ k(_, {
+-				label: "Feedback",
++				label: "反馈",
+ 				icon: nt,
+ 				href: "/",
+ 				target: "_blank",
+@@ -973,7 +973,7 @@ function Hi(e) {
+ //#endregion
+ //#region src/EntityLoader.tsx
+ function Ui(e) {
+-	let { isInspecting: t, message: n = "Loading" } = e, [r, i] = Le();
++	let { isInspecting: t, message: n = "正在加载" } = e, [r, i] = Le();
+ 	return Ie(i, 100), /* @__PURE__ */ A(O, { children: [/* @__PURE__ */ k("div", {
+ 		className: Mt.fallbackBar,
+ 		"data-mode": t ? "inspect" : "display",
+@@ -996,7 +996,7 @@ function Wi(e) {
+ 				className: Mt.retryBtn,
+ 				type: "button",
+ 				onClick: () => r(),
+-				children: "Retry?"
++				children: "重试？"
+ 			})
+ 		]
+ 	});
+@@ -1009,7 +1009,7 @@ function Wi(e) {
+ 	}
+ 	return /* @__PURE__ */ k("p", {
+ 		className: `${Mt.error} ${t}`,
+-		children: n instanceof Error ? n.message : "Unknown error"
++		children: n instanceof Error ? n.message : "未知错误"
+ 	});
+ }
+ //#endregion
+@@ -1075,7 +1075,7 @@ function ea(e) {
+ 	let { error: t } = e;
+ 	return /* @__PURE__ */ k("tr", { children: /* @__PURE__ */ k("td", {
+ 		className: $i.error,
+-		children: t instanceof Error ? t.message : "Unknown error"
++		children: t instanceof Error ? t.message : "未知错误"
+ 	}) });
+ }
+ //#endregion
+@@ -1151,7 +1151,7 @@ function sa() {
+ 		"data-testid": "LoadingAttributes",
+ 		children: /* @__PURE__ */ k("td", {
+ 			className: $i.fallback,
+-			children: "Loading..."
++			children: "正在加载..."
+ 		})
+ 	});
+ }
+@@ -1167,7 +1167,7 @@ function ua(e) {
+ 	let { entity: t } = e;
+ 	return /* @__PURE__ */ A("details", { children: [/* @__PURE__ */ k("summary", {
+ 		className: ca.heading,
+-		children: "Inspect"
++		children: "检查"
+ 	}), /* @__PURE__ */ k("pre", {
+ 		className: ca.content,
+ 		children: JSON.stringify(t, (e, t) => {
+@@ -1182,23 +1182,23 @@ function da(e) {
+ 	return /* @__PURE__ */ A(O, { children: [
+ 		/* @__PURE__ */ A("tr", { children: [/* @__PURE__ */ k("th", {
+ 			scope: "row",
+-			children: "Path"
++			children: "路径"
+ 		}), /* @__PURE__ */ k("td", { children: r })] }),
+ 		/* @__PURE__ */ A("tr", { children: [/* @__PURE__ */ k("th", {
+ 			scope: "row",
+-			children: a ? "File path" : "Name"
++			children: a ? "文件路径" : "名称"
+ 		}), /* @__PURE__ */ k("td", { children: a ? i : n })] }),
+ 		(_n(t) || vn(t)) && t.type && /* @__PURE__ */ A("tr", { children: [/* @__PURE__ */ k("th", {
+ 			scope: "row",
+-			children: "Type"
++			children: "类型"
+ 		}), /* @__PURE__ */ k("td", { children: ra(t.type) })] }),
+ 		_n(t) && /* @__PURE__ */ A("tr", { children: [/* @__PURE__ */ k("th", {
+ 			scope: "row",
+-			children: "Shape"
++			children: "形状"
+ 		}), /* @__PURE__ */ k("td", { children: kn(t.shape) ? na(t.shape.dims) : "None" })] }),
+ 		_n(t) && t.chunks && /* @__PURE__ */ A("tr", { children: [/* @__PURE__ */ k("th", {
+ 			scope: "row",
+-			children: "Chunk shape"
++			children: "分块形状"
+ 		}), /* @__PURE__ */ k("td", { children: na(t.chunks) })] }),
+ 		t.link?.path && /* @__PURE__ */ A("tr", { children: [/* @__PURE__ */ A("th", {
+ 			scope: "row",
+@@ -1206,7 +1206,7 @@ function da(e) {
+ 		}), /* @__PURE__ */ A("td", { children: [t.link.file && `${t.link.file}:`, t.link.path] })] }),
+ 		/* @__PURE__ */ A("tr", { children: [/* @__PURE__ */ k("th", {
+ 			scope: "row",
+-			children: "Raw"
++			children: "原始值"
+ 		}), /* @__PURE__ */ k("td", {
+ 			className: $i.raw,
+ 			children: /* @__PURE__ */ k(ua, { entity: t })
+@@ -1251,7 +1251,7 @@ function ma(e) {
+ 				children: /* @__PURE__ */ k(da, { entity: r })
+ 			}),
+ 			a.length > 0 && /* @__PURE__ */ k(pa, {
+-				title: "Attributes",
++				title: "属性",
+ 				children: /* @__PURE__ */ k(De, {
+ 					resetKeys: [t],
+ 					FallbackComponent: ea,
+@@ -1267,7 +1267,7 @@ function ma(e) {
+ 				})
+ 			}),
+ 			_n(r) && r.filters && r.filters.length > 0 && /* @__PURE__ */ k(pa, {
+-				title: "Compression filters",
++				title: "压缩过滤器",
+ 				children: /* @__PURE__ */ k(fa, { filters: r.filters })
+ 			})
+ 		]
+@@ -1617,7 +1617,7 @@ function so(e) {
+ 				className: ao.cancelBtn,
+ 				type: "button",
+ 				onClick: () => n.abortAll("cancelled by user"),
+-				children: "Cancel?"
++				children: "取消？"
+ 			}) })
+ 		] })
+ 	});
+@@ -1644,7 +1644,7 @@ function G(e) {
+ function co(e) {
+ 	let { isImage: t, config: n, exportEntries: r } = e, { fitImage: i, setFitImage: a } = n;
+ 	return /* @__PURE__ */ A(de, { children: [/* @__PURE__ */ k(S, {
+-		label: "Fit image",
++		label: "适应画布",
+ 		Icon: yt,
+ 		value: i,
+ 		disabled: !t,
+@@ -1934,19 +1934,19 @@ function No(e) {
+ 			})] }),
+ 			/* @__PURE__ */ k(x, {}),
+ 			i && /* @__PURE__ */ k(S, {
+-				label: "Errors",
++				label: "误差",
+ 				Icon: jo,
+ 				value: v,
+ 				onToggle: () => ce(!v)
+ 			}),
+ 			/* @__PURE__ */ k(S, {
+-				label: "Grid",
++				label: "网格",
+ 				Icon: _t,
+ 				value: m,
+ 				onToggle: () => re(!m)
+ 			}),
+ 			/* @__PURE__ */ A(y, {
+-				label: "Aspect",
++				label: "宽高比",
+ 				Icon: ht,
+ 				children: [/* @__PURE__ */ k(ne, {
+ 					name: "curvetype",
+@@ -1956,7 +1956,7 @@ function No(e) {
+ 					onChange: te
+ 				}), /* @__PURE__ */ k(ne, {
+ 					name: "interpolation",
+-					label: "Interpolation",
++					label: "插值",
+ 					options: Object.values(p),
+ 					disabled: f === s.GlyphsOnly,
+ 					value: b,
+@@ -2226,26 +2226,26 @@ function qo(e) {
+ 			/* @__PURE__ */ k(x, {}),
+ 			/* @__PURE__ */ k(S, {
+ 				label: "X",
+-				"aria-label": "Flip X",
++				"aria-label": "水平翻转",
+ 				Icon: bt,
+ 				value: _,
+ 				onToggle: () => oe(!_)
+ 			}),
+ 			/* @__PURE__ */ k(S, {
+ 				label: "Y",
+-				"aria-label": "Flip Y",
++				"aria-label": "垂直翻转",
+ 				Icon: xt,
+ 				value: v,
+ 				onToggle: () => se(!v)
+ 			}),
+ 			/* @__PURE__ */ k(S, {
+-				label: "Keep ratio",
++				label: "保持比例",
+ 				Icon: mt,
+ 				value: g,
+ 				onToggle: () => ie(!g)
+ 			}),
+ 			/* @__PURE__ */ k(S, {
+-				label: "Grid",
++				label: "网格",
+ 				Icon: _t,
+ 				value: h,
+ 				onToggle: () => re(!h)
+@@ -2421,26 +2421,26 @@ function Qo(e) {
+ 			/* @__PURE__ */ k(x, {}),
+ 			/* @__PURE__ */ k(S, {
+ 				label: "X",
+-				"aria-label": "Flip X",
++				"aria-label": "水平翻转",
+ 				Icon: bt,
+ 				value: a,
+ 				onToggle: () => u(!a)
+ 			}),
+ 			/* @__PURE__ */ k(S, {
+ 				label: "Y",
+-				"aria-label": "Flip Y",
++				"aria-label": "垂直翻转",
+ 				Icon: xt,
+ 				value: o,
+ 				onToggle: () => d(!o)
+ 			}),
+ 			/* @__PURE__ */ k(S, {
+-				label: "Keep ratio",
++				label: "保持比例",
+ 				Icon: mt,
+ 				value: r,
+ 				onToggle: () => c(!r)
+ 			}),
+ 			/* @__PURE__ */ k(S, {
+-				label: "Grid",
++				label: "网格",
+ 				Icon: _t,
+ 				value: i,
+ 				onToggle: () => l(!i)
+@@ -2897,7 +2897,7 @@ function Os(e) {
+ 	return pt(/* @__PURE__ */ A("div", {
+ 		className: Ds.wrapper,
+ 		children: [/* @__PURE__ */ k(x, {}), /* @__PURE__ */ A(y, {
+-			label: "Signals",
++			label: "信号",
+ 			Icon: vt,
+ 			children: [
+ 				/* @__PURE__ */ k(r, {
+@@ -2908,7 +2908,7 @@ function Os(e) {
+ 				/* @__PURE__ */ k(b, {}),
+ 				/* @__PURE__ */ k(r, {
+ 					className: Ds.allAuxOption,
+-					label: "Auxiliary signals",
++					label: "辅助信号",
+ 					checked: u,
+ 					indeterminate: l && !u,
+ 					onChange: () => {
+@@ -3084,7 +3084,7 @@ function Ns(e) {
+ 	return n ? pt(/* @__PURE__ */ A("div", {
+ 		className: Ms.wrapper,
+ 		children: [/* @__PURE__ */ k(x, {}), /* @__PURE__ */ k(y, {
+-			label: "Signals",
++			label: "信号",
+ 			Icon: vt,
+ 			children: /* @__PURE__ */ k(ne, {
+ 				name: "signals",
+@@ -3246,7 +3246,7 @@ function Is(e) {
+ 			}),
+ 			/* @__PURE__ */ k(x, {}),
+ 			/* @__PURE__ */ k(S, {
+-				label: "Grid",
++				label: "网格",
+ 				Icon: _t,
+ 				value: s,
+ 				onToggle: () => h(!s)
+@@ -3350,7 +3350,7 @@ function Bs(e) {
+ 			className: W.vis,
+ 			children: /* @__PURE__ */ k("p", {
+ 				className: W.fallback,
+-				children: "Unsupported mime type"
++				children: "不支持的 MIME 类型"
+ 			})
+ 		})
+ 	}) });
+@@ -3362,7 +3362,7 @@ var Vs = {
+ 	Icon: Ke,
+ 	Container: Bs
+ }, Hs = /* @__PURE__ */ function(e) {
+-	return e.NxLine = "NX Line", e.NxComplexLine = "NX Complex Line", e.NxHeatmap = "NX Heatmap", e.NxRGB = "NX RGB", e.NxScatter = "NX Scatter", e;
++	return e.NxLine = "NX 折线图", e.NxComplexLine = "NX 复数折线图", e.NxHeatmap = "NX 热图", e.NxRGB = "NX RGB 图像", e.NxScatter = "NX 散点图", e;
+ }({}), Us = {
+ 	[Hs.NxLine]: {
+ 		name: Hs.NxLine,
+@@ -3578,7 +3578,7 @@ function ic(e) {
+ 		}), F(n) && l && /* @__PURE__ */ k(xe, {
+ 			fallback: /* @__PURE__ */ k(at, {
+ 				className: U.spinner,
+-				"aria-label": "Loading group metadata...",
++				"aria-label": "正在加载组元数据...",
+ 				"data-testid": "LoadingExplorerGroup"
+ 			}),
+ 			children: /* @__PURE__ */ k(ac, {
+@@ -3642,7 +3642,7 @@ function oc(e) {
+ 		}), /* @__PURE__ */ k(xe, {
+ 			fallback: /* @__PURE__ */ k(at, {
+ 				className: U.spinner,
+-				"aria-label": "Loading root metadata...",
++				"aria-label": "正在加载根目录元数据...",
+ 				"data-testid": "LoadingExplorerRoot"
+ 			}),
+ 			children: /* @__PURE__ */ k(ac, {
+@@ -3692,7 +3692,7 @@ function uc(e) {
+ 			o(await i(lc));
+ 		}
+ 		a || e();
+-	}, [a, i]), !a) return /* @__PURE__ */ k("div", { children: "Loading paths..." });
++	}, [a, i]), !a) return /* @__PURE__ */ k("div", { children: "正在加载路径..." });
+ 	let s = t ? a.filter((e) => Nr(e).includes(t)) : [];
+ 	return /* @__PURE__ */ k("ul", {
+ 		className: sc.entries,
+@@ -3716,12 +3716,12 @@ function dc(e) {
+ 			children: /* @__PURE__ */ k("input", {
+ 				className: sc.input,
+ 				value: t,
+-				placeholder: "Search for an entity",
++				placeholder: "搜索对象",
+ 				onChange: (e) => {
+ 					n(e.target.value);
+ 				},
+ 				type: "text",
+-				"aria-label": "Path to search"
++				"aria-label": "搜索路径"
+ 			})
+ 		}), /* @__PURE__ */ k(uc, {
+ 			value: t,
+@@ -3750,7 +3750,7 @@ function hc(e) {
+ 				role: "tab",
+ 				"aria-selected": r === mc.Explore,
+ 				onClick: () => i(mc.Explore),
+-				"aria-label": "Explorer",
++				"aria-label": "浏览器",
+ 				children: /* @__PURE__ */ k($e, {})
+ 			}), /* @__PURE__ */ k("button", {
+ 				className: pc.tab,
+@@ -3758,7 +3758,7 @@ function hc(e) {
+ 				role: "tab",
+ 				"aria-selected": r === mc.Search,
+ 				onClick: () => i(mc.Search),
+-				"aria-label": "Search",
++				"aria-label": "搜索",
+ 				children: /* @__PURE__ */ k(ot, {})
+ 			})]
+ 		}),
+@@ -3808,7 +3808,7 @@ function Cc(e) {
+ 	return /* @__PURE__ */ k("div", {
+ 		className: Sc.selector,
+ 		role: "tablist",
+-		"aria-label": "Visualization",
++		"aria-label": "可视化方式",
+ 		children: n.map((e, n) => {
+ 			let { name: i, Icon: a } = e;
+ 			return /* @__PURE__ */ A("button", {
+@@ -3856,9 +3856,9 @@ function Tc(e) {
+ 	let { path: t } = e, { entitiesStore: n, attrValuesStore: r } = V(), i = Ws(t, n, r);
+ 	if (!i) return /* @__PURE__ */ A("div", {
+ 		className: W.fallback,
+-		children: [/* @__PURE__ */ k("p", { children: "Nothing to display" }), /* @__PURE__ */ k("p", {
++		children: [/* @__PURE__ */ k("p", { children: "没有可显示的内容" }), /* @__PURE__ */ k("p", {
+ 			className: W.fallbackHint,
+-			children: "Please select another entity in the sidebar."
++			children: "请在侧边栏中选择其他对象。"
+ 		})]
+ 	});
+ 	let { entity: a, supportedVis: o, primaryVis: s } = i;
