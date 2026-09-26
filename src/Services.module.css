@@ -29,6 +29,46 @@
   flex: 1 1 0%;
 }
 
+.disclaimer {
+  max-width: 60em;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #d7d7dc;
+  color: #3f3f48;
+  font-size: 0.875em;
+  line-height: 1.65;
+}
+
+.disclaimer h2 {
+  margin: 0 0 0.75rem;
+  color: #292930;
+  font-family: var(--font-logo);
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.disclaimer p {
+  margin: 0 0 1rem;
+}
+
+.disclaimer ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.disclaimer ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.disclaimer li + li {
+  margin-top: 0.5rem;
+}
+
+.disclaimer ul > li + li {
+  margin-top: 0.25rem;
+}
+
 @media (min-height: 35em) {
   .service + .service {
     margin-top: 2.5rem;
